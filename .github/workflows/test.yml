@@ -1,0 +1,13 @@
+name: Push to Main Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Greeting
+        run: echo "Hello from main branch!"
