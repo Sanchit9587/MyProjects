@@ -1,6 +1,49 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int lowerBound(vector<int> &vec,int target)
+{
+    int low=0;
+    int mid=0;
+    int high=vec.size()-1;
+    int ans=vec.size();
+    while(low<=high)
+    {
+        mid=(low+high)/2;
+        if(vec[mid]>=target)
+        {
+            ans=mid;
+            high=mid-1;
+        }
+        else
+        {
+            low=mid+1;
+        }
+    }
+    return ans;
+}
+
+int upperBound(vector<int> &vec,int target)
+{
+    int low=0;
+    int mid=0;
+    int high=vec.size()-1;
+    int ans=vec.size();
+    while(low<=high)
+    {
+        mid=(low+high)/2;
+        if(vec[mid]>target)
+        {
+            ans=mid;
+            high=mid-1;
+        }
+        else
+        {
+            low=mid+1;
+        }
+    }
+    return ans;
+}
 
 int recurssiveBinarySearch(vector<int> &vec,int low,int high, int target)
 {
